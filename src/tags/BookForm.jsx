@@ -9,16 +9,13 @@ let BookForm = () => {
   const [qty, setQty] = useState("");
   const [publisher, setPublisher] = useState("");
 
+  const navigate = useNavigate();
+
   const saveBook = async (e) => {
     e.preventDefault();
-    const book = new FormData();
-    book.append("no", no);
-    book.append("title", title);
-    book.append("price", price);
-    book.append("qty", qty);
-    book.append("publisher", publisher);
-
-    await axios.post("");
+    const book = { no, title, price, qty, publisher };
+    const res = await axios.post("http://54.165.239.214:8080/api/books", book);
+    navigate("/");
   };
   return (
     <div>
@@ -26,33 +23,33 @@ let BookForm = () => {
       <hr />
       <form onSubmit={saveBook}>
         도서번호 :{" "}
-        <input type="text" name="no" onChange={(e) => setNo(e.target.value)} />
+        <input type="text" value={no} onChange={(e) => setNo(e.target.value)} />
         <br />
         도서명 :{" "}
         <input
           type="text"
-          name="title"
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <br />
         가격 :{" "}
         <input
           type="text"
-          name="price"
+          value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
         <br />
         수량 :{" "}
         <input
           type="text"
-          name="qty"
+          value={qty}
           onChange={(e) => setQty(e.target.value)}
         />
         <br />
         출판사 :{" "}
         <input
           type="text"
-          name="publisher"
+          value={publisher}
           onChange={(e) => setPublisher(e.target.value)}
         />
         <br />

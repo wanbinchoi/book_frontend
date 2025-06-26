@@ -19,15 +19,13 @@ let BookList = () => {
   );
   let tr_list = list.map((book) => {
     return (
-      <>
-        <tr key={book.no}>
-          <td>{book.no}</td>
-          <td>{book.title}</td>
-          <td>{book.price}</td>
-          <td>{book.qty}</td>
-          <td>{book.publisher}</td>
-        </tr>
-      </>
+      <tr key={book.no}>
+        <td>{book.no}</td>
+        <td>{book.title}</td>
+        <td>{book.price}</td>
+        <td>{book.qty}</td>
+        <td>{book.publisher}</td>
+      </tr>
     );
   });
   return (
