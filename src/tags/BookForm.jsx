@@ -53,7 +53,7 @@ let BookForm = () => {
         <input
           type="text"
           name="publisher"
-          onChange={setPublisher((e) => e.target.value)}
+          onChange={(e) => setPublisher(e.target.value)}
         />
         <br />
         <button type="submit">등록</button>
